@@ -25,18 +25,22 @@ public class UserServiceImpl implements UserService {
 
     private final MailService mailService;
 
+    @Override
     public boolean updateNickname(Long id, String nickname) {
         return userMapper.updateNicknameById(id, nickname) > 0;
     }
 
+    @Override
     public User getById(Long id) {
         return userMapper.selectById(id);
     }
 
+    @Override
     public User getByEmail(String email) {
         return userMapper.selectByEmail(email);
     }
 
+    @Override
     public boolean signUp(User user) {
         String email = user.getEmail();
         if (existEmail(email)) {
@@ -47,6 +51,7 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
+    @Override
     public User completeSignUp(String token) {
         User user = tokenManager.getUserOfSignUp(token);
         if (user != null) {
@@ -61,7 +66,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Async
-    public void sendValidateEmail(User user) {
+    private void sendValidateEmail(User user) {
         String token = tokenManager.getTokenOfSignUp(user);
         log.error("用户注册，准备发送邮件：User:" + JSONObject.toJSONString(user) + ", Token: " + token);
         mailService.userValidate(user, token);

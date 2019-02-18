@@ -1,5 +1,6 @@
 package cn.smallcc.config.security;
 
+import cn.smallcc.serv.model.User;
 import cn.smallcc.serv.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,7 @@ class AnyUserDetailsService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-    cn.smallcc.serv.model.User user = userService.getByEmail(s);
+    User user = userService.getByEmail(s);
     if (user == null){
       throw new UsernameNotFoundException("用户不存在");
     }

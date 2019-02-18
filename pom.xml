@@ -101,12 +101,13 @@
       <version>1.2.0</version>
     </dependency>
 
-    <!-- Mariadb 依赖 -->
+    <!-- mysql -->
     <dependency>
-      <groupId>org.mariadb.jdbc</groupId>
-      <artifactId>mariadb-java-client</artifactId>
-      <version>1.5.9</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.47</version>
     </dependency>
+
 
     <!-- Jsoup 工具包 -->
     <dependency>

@@ -9,11 +9,11 @@ server:
 # 数据库 及 Redis 配置    
 spring:
   redis:
-    host: localhost
+    host: 118.24.121.59
     port: 6379
     password: 
   datasource:
-    url: jdbc:mysql://localhost:3306/video?useUnicode=true&amp;characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://118.24.121.59:3306/video?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
@@ -46,3 +46,4 @@ redis:
 app:
   name: smallcc
   domain: smallcc.cn
+
